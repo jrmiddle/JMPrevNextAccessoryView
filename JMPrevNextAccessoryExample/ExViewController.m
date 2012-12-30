@@ -60,7 +60,8 @@
 - (void)setupInputAccessoryViewForObject:(id)textObject
 {
     self.prevNextAccessoryView.associatedObject = textObject;
-    [textObject setInputAccessoryView:self.prevNextAccessoryView];
+    if (![textObject inputAccessoryView])
+        [textObject setInputAccessoryView:self.prevNextAccessoryView];
 }
 
 
