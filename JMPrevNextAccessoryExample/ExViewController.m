@@ -14,6 +14,7 @@
 // through which they should be visited using prev/next.
 
 @property (nonatomic, strong) NSArray *textViews;
+@property (nonatomic, strong) JMPrevNextAccessoryView *prevNextAccessoryView;
 
 @end
 
@@ -47,12 +48,19 @@
     }
 }
 
+- (JMPrevNextAccessoryView *)prevNextAccessoryView
+{
+    if (! _prevNextAccessoryView) {
+        _prevNextAccessoryView = [[JMPrevNextAccessoryView alloc] initWithDelegate:self
+                                                              associatedWithObject:nil];
+    }
+    return _prevNextAccessoryView;
+}
+
 - (void)setupInputAccessoryViewForObject:(id)textObject
 {
-    if ([textObject inputAccessoryView] == nil) {
-        JMPrevNextAccessoryView *prevNextAccessoryView = [[JMPrevNextAccessoryView alloc] initWithDelegate:self associatedWithObject:textObject];
-        [textObject setInputAccessoryView:prevNextAccessoryView];
-    }
+    self.prevNextAccessoryView.associatedObject = textObject;
+    [textObject setInputAccessoryView:self.prevNextAccessoryView];
 }
 
 
