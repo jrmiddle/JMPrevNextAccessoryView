@@ -100,9 +100,6 @@
     if ([delegate respondsToSelector:@selector(inputAccessoryBarStyleForObject:)]) {
         self.barStyle = [delegate inputAccessoryBarStyleForObject:self.associatedObject];
     }
-    else {
-        self.barStyle = UIBarStyleDefault;
-    }
     
     if ([delegate respondsToSelector:@selector(inputAccessoryBarTintColorForObject:)]) {
         self.tintColor = [delegate inputAccessoryBarTintColorForObject:self.associatedObject];
