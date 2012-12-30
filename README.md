@@ -13,7 +13,7 @@ aims to replicate that functionality with a minimum of developer overhead.
 
 To use JMPrevNextAccessoryView, you need to do the following:
 
-1.Add the source to your project.
+1. Add the source to your project.
 
 2. In your UITextViewDelegate and UITextFieldDelegate methods, add an instance of JMPrevNextAccessoryView using the -setInputAccessoryView method.
 
